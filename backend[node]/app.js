@@ -1,7 +1,16 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-
+const mongoose = require('mongoose');
+const Post = require('./models/post');
 const app = express();
+
+mongoose.connect('mongodb+srv://suraj:suraj123@cluster0-zyofx.mongodb.net/ng-social-posts?retryWrites=true&w=majority')
+                    .then(()=>{
+                        console.log("Connnected successfully");
+                    }).catch(()=>{
+                        console.log('Connection FAild!!!');
+                    });
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({entended : false}));
 
@@ -20,7 +29,11 @@ app.use((req,res,next)=>{
 // var posts;
  
 app.post("/api/posts", (req,res,next)=>{
-    const post = req.body;
+    const post = new Post({
+        title : req.body.title,
+        content : req.body.content
+    });
+    post.save();
     // posts.push(post.value);
     console.log(post);
     res.status(201).json({
