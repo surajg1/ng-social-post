@@ -9,6 +9,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatInputModule, MatButtonModule,MatCardModule, MatToolbarModule, MatExpansionModule} from '@angular/material';
 import { HeaderComponent } from './header/header.component';
 import { PostListComponent } from './posts/post-list/post-list.component';
+import { PostService } from './posts/post.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -27,8 +29,9 @@ import { PostListComponent } from './posts/post-list/post-list.component';
     MatButtonModule,
     MatExpansionModule,
     MatToolbarModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [PostService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

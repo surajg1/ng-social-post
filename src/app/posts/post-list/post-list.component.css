@@ -6,3 +6,10 @@
 .info-text{
     text-align: center;
 }
+
+.forButton{
+    margin: 1rem;
+    text-align: right;
+    margin: 1rem;
+    padding: 1rem;
+}

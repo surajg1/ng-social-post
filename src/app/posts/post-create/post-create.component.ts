@@ -8,16 +8,15 @@ import { PostService } from '../post.service';
   templateUrl: './post-create.component.html',
   styleUrls: ['./post-create.component.css']
 })
-export class PostCreateComponent implements OnInit {
-
+export class PostCreateComponent  {
+  enteredTitle = "";
+  enteredContent = "";
  
 //  postCreated = new EventEmitter<Post>();
 
   constructor(public postService : PostService) { }
 
-  ngOnInit() {
-    
-  } 
+ 
 
   onAddPost(form: NgForm){
     if(form.invalid){
@@ -25,6 +24,7 @@ export class PostCreateComponent implements OnInit {
     }
     // alert("Hello");
     this.postService.addPosts(form.value.title ,form.value.content);
+    form.resetForm();
   }
 
 }
