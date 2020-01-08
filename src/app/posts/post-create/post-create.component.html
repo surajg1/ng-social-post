@@ -1,14 +1,14 @@
 <mat-card>
-    <form (submit)="onAddPost(postForm)" #postForm="ngForm">
+    <form (submit)="onSavePost(postForm)" #postForm="ngForm">
     <mat-form-field>
-    <input type="text" matInput placeholder="Title" name="title" ngModel required #title="ngModel">   
+    <input type="text" matInput placeholder="Title" name="title" [ngModel]="post?.title" required #title="ngModel">   
     <mat-error *ngIf="title.invalid">Plese intered this fileds</mat-error>
      
     </mat-form-field>
 
     <mat-form-field>
         
-        <textarea matInput rows="3" placeholder="Discription" name="content" ngModel required #title="ngModel"></textarea>
+        <textarea matInput rows="3" placeholder="Discription" name="content" [ngModel]="post?.content" required #title="ngModel"></textarea>
         <mat-error *ngIf="title.invalid">Plese intered this fileds</mat-error>
     </mat-form-field>
   

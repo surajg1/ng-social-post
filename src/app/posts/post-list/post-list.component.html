@@ -8,8 +8,8 @@
         <div class="forButton">
             <mat-action-row>
 
-                <button mat-button color="accent" type="submit" > Edit </button>
-                <button mat-button color="warn" type="submit" > Delete </button>
+                <a mat-button color="accent" [routerLink] ="['/edit', post.id]" > Edit </a>
+                <button mat-button color="warn" (click) = "onDelete(post.id)" > Delete </button>
             </mat-action-row>
         </div>
 
