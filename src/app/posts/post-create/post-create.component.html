@@ -3,7 +3,7 @@
     <form [formGroup] = "form" (submit)="onSavePost()"  *ngIf="!isLoading">
     <mat-form-field>
     <input type="text" matInput placeholder="Title" formControlName = 'title'  >   
-    <mat-error *ngIf="form.get('title').invalid">Plese intered this fileds</mat-error>
+    <mat-error *ngIf="form.get('title').invalid">Plese Entered this fileds</mat-error>
      
     </mat-form-field>
     <div>
