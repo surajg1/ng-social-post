@@ -8,7 +8,7 @@ const app = express();
 
 
 
-mongoose.connect('mongodb+srv://surajgholap:srj@1998@cluster0-kmd7r.mongodb.net/posts?retryWrites=true&w=majority', {useNewUrlParser: true})
+mongoose.connect('mongodb+srv://surajgholap:srj@1998@cluster0-kmd7r.mongodb.net/posts', {useNewUrlParser: true})
             .then(()=>{
                 console.log("DataBase connectd");
             }).catch(()=>{
