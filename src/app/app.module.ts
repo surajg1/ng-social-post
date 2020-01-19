@@ -10,9 +10,10 @@ import {MatInputModule, MatButtonModule,MatCardModule, MatToolbarModule, MatExpa
 import { HeaderComponent } from './header/header.component';
 import { PostListComponent } from './posts/post-list/post-list.component';
 import { PostService } from './posts/post.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginComponent } from './auth/login/login.conponent';
 import { SignupComponent } from './auth/signup/signup.conponent';
+import { AuthInterceptor } from './auth/auth-interceptor';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,7 @@ import { SignupComponent } from './auth/signup/signup.conponent';
     MatPaginatorModule,
     FormsModule
   ],
-  providers: [PostService],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

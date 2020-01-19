@@ -5,16 +5,20 @@
     <span class="spacer">  </span>
     <ul>
         <li>
-            <a mat-button routerLink="/create" color="Warm"  routerLinkActive = "mat-accent">Create Post</a>  
+            <a *ngIf="userIsAuthenticated" mat-button routerLink="/create" color="Warm"  routerLinkActive = "mat-accent">Create Post</a>  
         </li>
 
  
         <li>
-            <a mat-button routerLink="/login" color="Warm"  routerLinkActive = "mat-accent">Login</a>  
+            <a *ngIf="!userIsAuthenticated" mat-button routerLink="/login" color="Warm"  routerLinkActive = "mat-accent">Login</a>  
         </li>
 
         <li>
-            <a mat-button routerLink="/signup" color="Warm"  routerLinkActive = "mat-accent">Sign Up</a>  
+            <a *ngIf="!userIsAuthenticated" mat-button routerLink="/signup" color="Warm"  routerLinkActive = "mat-accent">Sign Up</a>  
+        </li>
+
+        <li>
+            <button mat-flat-button (click)="onLogout()" color="warm" *ngIf="userIsAuthenticated"> Log Out </button>
         </li>
     </ul>
 
