@@ -42,6 +42,10 @@ router.post("", checkAuth,multer({storage : storage}).single("image"),(req,res,n
                 id : CreatedPost._id
             }
         })    
+    }).catch(error => {
+        res.status(500).json({
+            message : "Post creation Faild!"
+        })
     });
     // posts.push(post.value);
     console.log(post);
@@ -69,7 +73,9 @@ router.put("/:id",checkAuth, multer({storage : storage}).single("image"), (req, 
            res.status(401).json({ message:" You Does not create those post" })
        }
     }).catch(error =>{
-        console.log(error);
+        res.status(500).json({
+            message : "Fails to Update a Post!!"
+        })
     })
 })
 
@@ -96,6 +102,11 @@ router.get('',(req,res,next)=>{
             posts: fetchedPosts,
             maxPosts:count
         });
+    })
+    .catch(error => {
+        res.status(500).json({
+            message : "Fails to Getting your a Post!!"
+        })
     });
 });
 
@@ -107,7 +118,11 @@ router.get("/:id",(req,res,next)=>{
             res.status(404).json({message : "Request does not found"});
         }
 
-    })
+    }).catch(error => {
+        res.status(500).json({
+            message : "Fails to Getting your a Post!!"
+        })
+    });
 });
 
 router.delete("/:id",checkAuth,(req,res,next) => {
@@ -117,7 +132,11 @@ router.delete("/:id",checkAuth,(req,res,next) => {
             res.status(200).json({message: "Deleted Suceesfully"});  
         }else{
             res.status(401).json({ message:" You Does not create those post" })
-        }    })
+        }    }) .catch(error => {
+            res.status(500).json({
+                message : "Fails to Deleting your a Post!!"
+            })
+        });
 });
 
 module.exports = router;

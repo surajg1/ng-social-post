@@ -5,7 +5,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken")
 
 router.post("/signup", (req, res, next)=> {
-
+// Original
     bcrypt.hash(req.body.password, 10)
         .then(hash =>{
             const user = new User({
@@ -19,14 +19,10 @@ router.post("/signup", (req, res, next)=> {
                 });
             }).catch(error =>{
               res.status(500).json({
-                  error : error
+                      message : "Accessed Denied!"
               })
-              console.log(error);
-
               })
         })
-
-
 });
 
 router.post("/login", (req, res, next)=> {
@@ -64,7 +60,7 @@ router.post("/login", (req, res, next)=> {
         }).catch(err => {
             console.log(err);
         return res.status(401).json({
-            message : "authentication falid"
+            message : "Invalid Login details provided"
         });
     })
 });
