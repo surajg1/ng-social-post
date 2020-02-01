@@ -2,10 +2,20 @@
     <mat-spinner *ngIf = "isLoading"></mat-spinner>
     <form  (submit)="onSignup(signupForm)" #signupForm="ngForm" *ngIf="!isLoading">
     <mat-form-field>
+    <input type="text" matInput name="user_name" ngModel placeholder="eg. My Name" #emailInput="ngModel" required>   
+    <mat-error>Plese Entered valid User Name</mat-error>
+    </mat-form-field> 
+    <mat-form-field>
+    <input type="number" matInput name="ph_number" ngModel placeholder="eg. 9876543210" #emailInput="ngModel" required>   
+    <mat-error>Plese Entered valid Phone No</mat-error>
+    </mat-form-field> 
+
+    <mat-form-field>
     <input type="email" matInput name="email" ngModel placeholder="exmaple@gmail.com" #emailInput="ngModel" required email>   
     <mat-error *ngIf="emailInput.invalid">Plese Entered valid email</mat-error>
      
     </mat-form-field> 
+
    
     <mat-form-field>
         
