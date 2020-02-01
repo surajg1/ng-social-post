@@ -3,13 +3,17 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "start:server": "nodemon ./backend/server.js"
+    "start": "node server.js",
+    "postinstall": "ng build --output-path angularapp  --aot --prod"
   },
+  "engines": {
+    "node": "v10.16.3",
+    "npm": "6.9.0"
+},
   "private": true,
   "dependencies": {
     "@angular/animations": "~8.2.14",
