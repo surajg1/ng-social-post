@@ -20,7 +20,7 @@ export class PostListComponent implements OnInit,OnDestroy {
 
   isLoading = false;
   totalPosts = 0;
-  postsPerPage = 2;
+  postsPerPage = 5;
   currentPage = 1;
   pageSizeOption = [1, 2, 3, 5, 10]
   userId: string;
