@@ -17,9 +17,13 @@
             <a *ngIf="!userIsAuthenticated" mat-button routerLink="/auth/signup" color="Warm"  routerLinkActive = "mat-accent">Sign Up</a>  
         </li>
 
-        <li>
+        <li class="mr-1">
+            <a style="margin-right: 1px;" href="http://jayesh-chat-app.herokuapp.com/" *ngIf="userIsAuthenticated"> <button class="btn btn-warning"><i class="fa fa-comment"></i> </button></a>
+        </li>
+        <li >
             <button mat-flat-button (click)="onLogout()" color="warm" *ngIf="userIsAuthenticated"> Log Out </button>
         </li>
+       
     </ul>
 
 </mat-toolbar>

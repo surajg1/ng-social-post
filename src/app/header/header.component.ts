@@ -13,7 +13,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   private authListenerSubs : Subscription;
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService) {
+    // matIconRegistry.addSvgIconSet(domSanitizer.bypassSecurityTrustResourceUrl('/assets/chat-24px.svg'));
+  }
 
   ngOnInit() {
     this.userIsAuthenticated = this.authService.getIsAuth();
